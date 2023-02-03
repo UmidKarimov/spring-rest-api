@@ -1,6 +1,6 @@
-package umid.spring.hibernate.dao;
+package spring.rest.dao;
 
-import umid.spring.hibernate.entity.Employee;
+import spring.rest.entity.Employee;
 
 import java.util.List;
 

@@ -1,15 +1,12 @@
-package umid.spring.hibernate.dao;
+package spring.rest.dao;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.query.Query;
-import org.hibernate.service.internal.SessionFactoryServiceRegistryFactoryImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Repository;
-import org.springframework.transaction.annotation.Transactional;
-import umid.spring.hibernate.entity.Employee;
-
+import spring.rest.entity.Employee;
 
 import java.util.List;
 

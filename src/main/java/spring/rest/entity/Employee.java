@@ -1,4 +1,4 @@
-package umid.spring.hibernate.entity;
+package spring.rest.entity;
 
 
 import javax.persistence.*;
