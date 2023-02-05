@@ -3,14 +3,12 @@ package spring.rest.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import spring.rest.entity.Employee;
 import spring.rest.exception_handler.NegativeIdNumberException;
 import spring.rest.exception_handler.NoSuchEmployeeException;
 
+import spring.rest.response.EmployeeCRUDResponse;
 import spring.rest.service.EmployeeService;
 
 import java.util.List;
@@ -39,6 +37,37 @@ public class EmployeeController {
             throw new NoSuchEmployeeException("Employee with id "+id+" was not found");
 
         return employee;
+    }
+
+    @PostMapping("/employees")
+    public EmployeeCRUDResponse addNewEmployee(@RequestBody Employee employee){
+
+        employeeService.saveEmployee(employee);
+
+        return new EmployeeCRUDResponse("Successfully add new employee");
+    }
+
+    @PutMapping("/employees")
+    public EmployeeCRUDResponse updateEmployee(@RequestBody Employee employee){
+
+        employeeService.saveEmployee(employee);
+
+
+        return new EmployeeCRUDResponse("Employee was successfully updated");
+
+    }
+
+    @DeleteMapping("/employees/{id}")
+    public EmployeeCRUDResponse deleteEmployee(@PathVariable("id") int id){
+        Employee employee = employeeService.getEmployeeById(id);
+
+        if (employee==null)
+            throw new NoSuchEmployeeException();
+
+        employeeService.deleteEmployee(id);
+
+        return new EmployeeCRUDResponse("Employee with id "+id+" was successfully deleted");
+
     }
 
 }
