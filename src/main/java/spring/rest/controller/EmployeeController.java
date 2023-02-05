@@ -36,7 +36,7 @@ public class EmployeeController {
         Employee employee = employeeService.getEmployeeById(id);
 
         if (employee==null)
-            throw new NoSuchEmployeeException();
+            throw new NoSuchEmployeeException("Employee with id "+id+" was not found");
 
         return employee;
     }

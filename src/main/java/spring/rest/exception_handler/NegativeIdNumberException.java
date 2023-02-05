@@ -7,6 +7,6 @@ public class NegativeIdNumberException extends RuntimeException{
     }
 
     public NegativeIdNumberException(){
-        super("Employee's id have to be greater then 0!");
+        super("Employee's id have to be greater than 0!");
     }
 }
